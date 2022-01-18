@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<script>
+		function jisuan() {
+			var ipt = $('#iptnum').val();
+			var iptstr = "";
+			var baozi = "";
+			var zusan = "";
+			var zuliu = "";
+			for(var i = 0; i < ipt.length; i++) {
+				baozi += ipt[i] + ipt[i] + ipt[i] + "|";
+			}
+			for(var bai = 0; bai < ipt.length; bai++) {
+				for(var shi = 0; shi < ipt.length; shi++) {
+					if(ipt[bai] != ipt[shi]) {
+						zusan += ipt[bai] + ipt[bai] + ipt[shi] + "|";
+					}
+				}
+			}
+			for(var bai = 0; bai < ipt.length; bai++) {
+				for(var shi = bai; shi < ipt.length; shi++) {
+					for(var ge = shi; ge < ipt.length; ge++) {
+						if(ipt[bai] != ipt[shi] && ipt[bai] != ipt[ge] && ipt[shi] != ipt[ge])
+							zuliu += ipt[bai] + ipt[shi] + ipt[ge] + "|";
+					}
+				}
+			}
+
+			document.getElementById("baozi").innerHTML = baozi;
+			document.getElementById("zusan").innerHTML = zusan;
+			document.getElementById("zuliu").innerHTML = zuliu;
+		}
+	</script>
+
+	<body>
+		<div style="border:2px solid; width: 900px; height: 900px;">
+			<div style="border:1px solid;height: 150px;">
+				<input style="size:auto;" id="iptnum" type="text" />
+				<button onclick="jisuan()">run</button>
+			</div>
+
+			<div style="border:1px solid;height: auto;">
+				<h1>豹子</h1>
+				<font id="baozi" size="6"></font>
+			</div>
+
+			<div style=" border:1px solid;height: auto;">
+				<h1>组三</h1>
+				<font id="zusan" size="6 "></font>
+			</div>
+			<div style="border:1px solid;height: auto;">
+				<h1>组六</h1>
+				<font id="zuliu" size="6 "></font>
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<div>
+				<a href="index.html ">
+					<---返回主页</a>
+			</div>
+		</div>
+	</body>
+
+</html>
